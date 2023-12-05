@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header, footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+
+    section {
+      max-width: 600px;
+      margin: 2em auto;
+      background-color: #fff;
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5em;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5em;
+      margin-bottom: 1em;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 0.7em 1.5em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-left: 250px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .footer-box {
+      width: 30%;
+      display: inline-block;
+      vertical-align: top;
+      box-sizing: border-box;
+      padding: 1em;
+      margin: 1em;
+      background-color: #555;
+      border-radius: 8px;
+    }
+
+    .footer-box h2 {
+      margin-bottom: 0.5em;
+    }
+
+    .footer-box p {
+      color: #ddd;
+    }
+
+    .footer-links {
+      text-align: center;
+      margin-top: 1em;
+    }
+
+    .footer-links a {
+      color: #4CAF50;
+      text-decoration: none;
+      margin: 0 1em;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Doctor Appointment</h1>
+  </header>
+
+  <section>
+    <form id="registerForm" onsubmit="return validateForm()" action="afterregister.php" method="post" autocomplete="off">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <div class="footer-links">
+      <a href="index.html">Login</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-box">
+        <h2>Contacts</h2>
+        <p>Email: contact@example.com</p>
+        <p>Phone Number: ********</p>
+      </div>
+  
+      <div class="footer-box">
+      <h2>Our Treatments</h2>
+        <p>High Risk Pregnancy</p>
+        <p>Infertility</p>
+      </div>
+  
+      <div class="footer-box">
+        <h2>About Us</h2>
+        <p>Online scheduling is a key differentiator that can help drive new patient acquisition and longer-term practice growth.</p>
+      </div>
+  </footer>
+
+  <script>
+    function validateForm() {
+      var nameRegex = /^[a-zA-Z][a-zA-Z0-9@#$%^&*()_+!.,;'"<>{}[\]\s-]{0,19}$/;
+      var emailRegex = /^[a-zA-Z][a-zA-Z0-9._-]+@gmail.com$/;
+      var passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@#$%^&*()_+!.,;'"<>{}[\]\s-])[A-Za-z\d@#$%^&*()_+!.,;'"<>{}[\]\s-]{5,10}$/;
+
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      if (!nameRegex.test(name)) {
+        alert('Invalid Name! Name should start with a letter and can contain letters, digits, and special characters. Maximum length is 20.');
+        return false;
+      }
+
+      if (!emailRegex.test(email)) {
+        alert('Invalid Email! Email should start with a letter, followed by letters, digits, dots, and underscores, and must end with @gmail.com.');
+        return false;
+      }
+
+      if (!passwordRegex.test(password)) {
+        alert('Invalid Password! Password should be a combination of letters, digits, and special characters (@#$%^&*()_+!.,;\'"<>{}[]\\s-) with a minimum length of 5 and a maximum length of 10.');
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+
+</body>
+</html>

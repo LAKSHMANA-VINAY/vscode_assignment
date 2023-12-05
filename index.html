@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header, footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+
+    section {
+      max-width: 600px;
+      margin: 2em auto;
+      background-color: #fff;
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5em;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.5em;
+      margin-bottom: 1em;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 0.7em 1.5em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-left: 250px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .footer-box {
+      width: 30%;
+      display: inline-block;
+      vertical-align: top;
+      box-sizing: border-box;
+      padding: 1em;
+      margin: 1em;
+      background-color: #555;
+      border-radius: 8px;
+    }
+
+    .footer-box h2 {
+      margin-bottom: 0.5em;
+    }
+
+    .footer-box p {
+      color: #ddd;
+    }
+
+    .footer-links {
+      text-align: center;
+      margin-top: 1em;
+    }
+
+    .footer-links a {
+      color: #4CAF50;
+      text-decoration: none;
+      margin: 0 1em;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Doctor Appointment</h1>
+  </header>
+
+  <section>
+    <form action="afterindex.php" method="post" autocomplete="off">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="userType">User Type:</label>
+      <select id="userType" name="userType">
+        <option value="doctor">Doctor</option>
+        <option value="user">User</option>
+      </select>
+
+      <button type="submit">Login</button>
+
+      <div class="footer-links">
+        <a href="#">Forgot Password?</a>
+        <span>|</span>
+        <a href="register.html">Register</a>
+      </div>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-box">
+      <h2>Contacts</h2>
+      <p>Email: contact@example.com</p>
+      <p>Phone Number: ********</p>
+    </div>
+
+    <div class="footer-box">
+    <h2>Our Treatments</h2>
+      <p>High Risk Pregnancy</p>
+      <p>Infertility</p>
+    </div>
+
+    <div class="footer-box">
+      <h2>About Us</h2>
+      <p>Online scheduling is a key differentiator that can help drive new patient acquisition and longer-term practice growth.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
