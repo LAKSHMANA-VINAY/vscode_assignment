@@ -297,8 +297,7 @@ $_SESSION['email']=$_GET['email'];
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
   <script>
-
-    // JavaScript for dynamically populating slots based on the selected contact type
+    
     function toggleAnswer(faqNumber) {
       var answer = document.getElementsByClassName('faq-answer')[faqNumber - 1];
       if (answer.style.display === 'none') {
@@ -308,12 +307,10 @@ $_SESSION['email']=$_GET['email'];
       }
     }
 
-    // JavaScript to handle slot button selection and continue button state
     var selectedSlot = null;
 
     document.addEventListener('click', function (event) {
       if (event.target.classList.contains('slot-button')) {
-        // Toggle the selected class for the slot buttons
         var buttons = document.querySelectorAll('.slot-button');
         buttons.forEach(function (button) {
           button.classList.remove('selected');
@@ -325,11 +322,9 @@ $_SESSION['email']=$_GET['email'];
           time: event.target.dataset.slot
         };
 
-        // Enable the continue button when a slot is selected
         var continueButton = document.querySelector('.continue-button');
         continueButton.disabled = !selectedSlot;
 
-        // Change the continue button color to blue when a slot is selected
         if (selectedSlot) {
           continueButton.classList.add('enabled');
         } else {
@@ -338,7 +333,6 @@ $_SESSION['email']=$_GET['email'];
       }
     });
 
-    // JavaScript to dynamically update fees based on the selected contact type
     function updateContactType(contactType) {
       updateFees(contactType);
       var contactOptions = document.querySelectorAll('.contact-option');
@@ -369,10 +363,8 @@ $_SESSION['email']=$_GET['email'];
       }
     }
 
-    // Initial update of fees based on the default selection (In Clinic)
     updateFees('inClinic');
 
-    // JavaScript for date navigation and slot buttons
     var currentDateIndex = 0;
 
     function changeDate(change) {
@@ -393,7 +385,6 @@ $_SESSION['email']=$_GET['email'];
       var slotButtonsContainer = document.getElementById('slotButtons');
       slotButtonsContainer.innerHTML = '';
 
-      // Slots buttons dynamically populated here
       for (var i = 0; i < 5; i++) {
         var slotButton = document.createElement('button');
         var slotTime = (i + 10) + ':00';
@@ -427,7 +418,6 @@ $_SESSION['email']=$_GET['email'];
       return date.toLocaleDateString('en-US', options);
     }
 
-    // Initial setup of date and slot buttons
     updateDateAndSlots();
 
     function sendBookingData() {
@@ -436,12 +426,10 @@ $_SESSION['email']=$_GET['email'];
         var date = document.getElementById('dateHeader').textContent;
         var selectedTime = selectedSlot.time;
 
-        // Create a form element
         var form = document.createElement('form');
         form.action = 'bookslot.php';
         form.method = 'POST';
 
-        // Create form fields and append them to the form
         var appendField = function (name, value) {
           var input = document.createElement('input');
           input.type = 'hidden';
@@ -454,7 +442,6 @@ $_SESSION['email']=$_GET['email'];
         appendField('date', date);
         appendField('selectedTime', selectedTime);
 
-        // Append the form to the document and submit it
         document.body.appendChild(form);
         form.submit();
       }
